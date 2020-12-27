@@ -16,11 +16,12 @@ delimiter=';'
 - zoom to bounding box on load
 - improve popups
 - search bar, maybe?
-- make file input more decent, or even support drag&drop over whole page
+- make file input interface more decent, or even support drag&drop over whole page
 - fix bug with displaying header row as dot in top-left corner
 - center the dots (currently, their corner is on the actual coordinate)
 - some name and icon in header and tab bar
 - handle loading/reloading. Should already loaded points be kept?
+- detect invalid format and show error
 
 ## Acknowledgements
 

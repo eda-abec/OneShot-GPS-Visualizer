@@ -30,6 +30,7 @@
     
     
     //columns in .csv
+    var DATE = 0;
     var SSID = 2;
     var LAT = 5;
     var LONG = 6;
@@ -58,18 +59,17 @@
     }
     
 
-    function add_map_point(ssid, lat, lng) {
-    
-    console.log(lat)
+    function add_map_point(ap) {
     
         var mark = document.createElement('img')
         mark.src = "dot.svg"
-        mark.title = ssid
+        mark.title = "SSID: " + ap[SSID] + "\n" +
+                     "Date: " + ap[DATE]
 
         mark.style.width = "16px"
         var popup = new ol.Overlay({element: mark})
         
-        popup.setPosition(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857'))
+        popup.setPosition(ol.proj.transform([parseFloat(ap[LONG]), parseFloat(ap[LAT])], 'EPSG:4326', 'EPSG:3857'))
         map.addOverlay(popup)
     }
 
@@ -86,7 +86,7 @@
                 
             data.forEach(line => {
              //   console.log(line)
-                add_map_point(line[SSID], line[LAT], line[LONG])
+                add_map_point(line)
                     
             //    coords.push([parseFloat(line[LAT]), parseFloat(line[LONG])])
             //    console.log([parseFloat(line[LAT]), parseFloat(line[LONG])])

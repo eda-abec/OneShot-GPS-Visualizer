@@ -37,8 +37,6 @@
     
     
     var map;
-    var mapLat; //TODO assign by bounding box
-    var mapLng;
     var zoom = 2;
     
     function initialize_map() {
@@ -79,25 +77,27 @@
         var reader = new FileReader()
         reader.readAsText(file)
         
-    //    var coords = []
+        var coords = []
             
         reader.onload = function() {
-            data = csvStringToArray(reader.result, ";")
-                
+            
+            data = csvStringToArray(reader.result)
+            
+            // removing the header row. For some reason, shift() is not enough
+            data.shift()
+            data.pop()
+            
             data.forEach(line => {
-             //   console.log(line)
                 add_map_point(line)
-                    
-            //    coords.push([parseFloat(line[LAT]), parseFloat(line[LONG])])
-            //    console.log([parseFloat(line[LAT]), parseFloat(line[LONG])])
+                coords.push([parseFloat(line[LONG]), parseFloat(line[LAT])])
             });
             
-           /* zoom to bounding box, not working yet
+           // zoom to bounding box
             var ex = ol.extent.boundingExtent(coords)
             var areaExtent = ol.extent.applyTransform(ex, ol.proj.getTransform('EPSG:4326', 'EPSG:3857'))
 
-            map.getView().transform(areaExtent)
-            */
+            map.getView().setCenter(areaExtent)
+            map.getView().fit(areaExtent, {padding: [100, 100, 100, 100]})
         };
     }
     </script>

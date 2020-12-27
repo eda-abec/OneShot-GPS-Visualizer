@@ -65,9 +65,13 @@
                      "Date: " + ap[DATE]
 
         mark.style.width = "16px"
-        var popup = new ol.Overlay({element: mark})
+        var popup = new ol.Overlay({
+            element: mark,
+            positioning: 'center-center',
+            stopEvent: false,
+            position: ol.proj.transform([parseFloat(ap[LONG]), parseFloat(ap[LAT])], 'EPSG:4326', 'EPSG:3857'),
+        })
         
-        popup.setPosition(ol.proj.transform([parseFloat(ap[LONG]), parseFloat(ap[LAT])], 'EPSG:4326', 'EPSG:3857'))
         map.addOverlay(popup)
     }
 

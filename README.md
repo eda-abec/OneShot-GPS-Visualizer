@@ -16,7 +16,6 @@ delimiter=';'
 - improve popups
 - search bar, maybe?
 - make file input interface more decent, or even support drag&drop over whole page
-- center the dots (currently, their corner is on the actual coordinate)
 - some name and icon in header and tab bar
 - handle loading/reloading. Should already loaded points be kept?
 - detect invalid format and show error

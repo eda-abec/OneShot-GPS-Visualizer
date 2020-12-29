@@ -3,7 +3,7 @@
 Displays report from [OneShot](https://github.com/drygdryg/OneShot), annotated by [os_gps_merge](https://github.com/eda-abec/OneShot-GPS-Merge) on OpenStreetMap.
 
 ## Usage
-All you need is to open the HTML file in web browser and load a .csv file obtained from [os_gps_merge](https://github.com/eda-abec/OneShot-GPS-Merge).
+Download and open the HTML file or try [live verison](https://eda-abec.github.io/OneShot-GPS-Visualizer/visualizer.html) and load a .csv file obtained from [os_gps_merge](https://github.com/eda-abec/OneShot-GPS-Merge).
 
 ## CSV Format
 Columns are same as in OneShot report, with `CurrentLatitude` and `CurrentLongitude` added to end.

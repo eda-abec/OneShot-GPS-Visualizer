@@ -31,13 +31,20 @@
     
     //columns in .csv
     var DATE = 0;
+    var BSSID = 1;
     var SSID = 2;
+    var PSK = 4
     var LAT = 5;
     var LONG = 6;
     
     
     var map;
     var zoom = 2;
+    
+    // to be replaced along with some better PIN-only notation
+    function isPINOnly(ap) {
+        return (ap[SSID] == "" && ap[PSK] == "")
+    }
     
     function initialize_map() {
         map = new ol.Map({
@@ -60,8 +67,9 @@
     function add_map_point(ap) {
     
         var mark = document.createElement('img')
-        mark.src = "dot.svg"
-        mark.title = "SSID: " + ap[SSID] + "\n" +
+        mark.src = (isPINOnly(ap)? "orange.svg" : "dot.svg")
+        mark.title = "SSID: " + ap[SSID]  + "\n" +
+                     "MAC : " + ap[BSSID] + "\n" +
                      "Date: " + ap[DATE]
 
         mark.style.width = "16px"

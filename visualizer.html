@@ -41,9 +41,9 @@
     var map;
     var zoom = 2;
     
-    // to be replaced along with some better PIN-only notation
+    // to be replaced along with some better PIN-only recognition
     function isPINOnly(ap) {
-        return (ap[SSID] == "" && ap[PSK] == "")
+        return (ap[DATE] == "" && ap[PSK] == "")
     }
     
     function initialize_map() {

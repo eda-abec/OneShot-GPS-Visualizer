@@ -36,6 +36,7 @@
     var PSK = 4
     var LAT = 5;
     var LONG = 6;
+    var RSSI = 7;
     
     
     var map;
@@ -80,8 +81,9 @@
             mark.src = "dot.svg"
         
         mark.title = "SSID: " + ap[SSID]  + "\n" +
-                     "MAC : " + ap[BSSID] + "\n" +
-                     "Date: " + ap[DATE]
+                     "MAC: " + ap[BSSID] + "\n" +
+                     "Date: " + ap[DATE] + "\n" +
+                     "Signal: " + ap[RSSI]
 
         mark.style.width = "16px"
         var popup = new ol.Overlay({

@@ -46,6 +46,10 @@
         return (ap[DATE] == "" && ap[PSK] == "")
     }
     
+    function isOpen(ap) {
+        return ap[PSK] == ""
+    }
+    
     function initialize_map() {
         map = new ol.Map({
             target: "map",
@@ -67,7 +71,14 @@
     function add_map_point(ap) {
     
         var mark = document.createElement('img')
-        mark.src = (isPINOnly(ap)? "orange.svg" : "dot.svg")
+        
+        if(isPINOnly(ap))
+            mark.src = "orange.svg"
+        else if(isOpen(ap))
+            mark.src = "green.svg"
+        else 
+            mark.src = "dot.svg"
+        
         mark.title = "SSID: " + ap[SSID]  + "\n" +
                      "MAC : " + ap[BSSID] + "\n" +
                      "Date: " + ap[DATE]

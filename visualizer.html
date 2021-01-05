@@ -11,6 +11,12 @@
             margin: 0px;
             padding: 0px;
         }
+        
+        input {
+            position: fixed;
+            right: 0px;
+            top: 0px;
+        }
         </style>
     <script>
     
@@ -67,9 +73,11 @@
             })
         });
     }
+    
 
     function add_map_point(ap) {
         var mark = document.createElement('svg')
+        
         
         if(isPINOnly(ap))
             color = "orange"
@@ -116,7 +124,7 @@
                 coords.push([parseFloat(line[LONG]), parseFloat(line[LAT])])
             });
             
-           // zoom to bounding box
+            // zoom to bounding box
             var ex = ol.extent.boundingExtent(coords)
             var areaExtent = ol.extent.applyTransform(ex, ol.proj.getTransform('EPSG:4326', 'EPSG:3857'))
 
@@ -128,9 +136,9 @@
 </head>
 
 <body onload="initialize_map();">
-    <div id="box" style="width: 100vw; height: 5vh;">
+    <div id="map" style="width: 100vw; height: 100vh;"></div>
+    <div id="box">
         <input type="file" id="csvInput" onChange="load(this);"></input>
     </div>
-    <div id="map" style="width: 100vw; height: 95vh;"></div>
 </body>
 </html>

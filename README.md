@@ -19,7 +19,6 @@ delimiter=';'
 - some name and icon in header and tab bar
 - handle loading/reloading. Should already loaded points be kept?
 - detect invalid format and show error
-- minify .svgs and include in .html for easier manipulation
 
 ## Acknowledgements
 

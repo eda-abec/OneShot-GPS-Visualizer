@@ -67,25 +67,24 @@
             })
         });
     }
-    
 
     function add_map_point(ap) {
-    
-        var mark = document.createElement('img')
+        var mark = document.createElement('svg')
         
         if(isPINOnly(ap))
-            mark.src = "orange.svg"
+            color = "orange"
         else if(isOpen(ap))
-            mark.src = "green.svg"
+            color = "green"
         else 
-            mark.src = "dot.svg"
+            color = "red"
+        circle = '<svg width="16" height="16"><circle cx="8" cy="8" r="7" stroke="black" stroke-width="1" fill="' + color + '" /></svg>'
         
+        mark.innerHTML = circle
         mark.title = "SSID: " + ap[SSID]  + "\n" +
                      "MAC: " + ap[BSSID] + "\n" +
                      "Date: " + ap[DATE] + "\n" +
                      "Signal: " + ap[RSSI]
-
-        mark.style.width = "16px"
+        
         var popup = new ol.Overlay({
             element: mark,
             positioning: 'center-center',

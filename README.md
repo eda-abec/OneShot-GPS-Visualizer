@@ -6,7 +6,7 @@ Displays report from [OneShot](https://github.com/drygdryg/OneShot), annotated b
 Download and open the HTML file or try [live verison](https://eda-abec.github.io/OneShot-GPS-Visualizer/visualizer.html) and load a .csv file obtained from [os_gps_merge](https://github.com/eda-abec/OneShot-GPS-Merge).
 
 ## CSV Format
-Columns are same as in OneShot report, with `CurrentLatitude` and `CurrentLongitude` added to end.
+Columns are same as in OneShot report, with `CurrentLatitude`, `CurrentLongitude` and `RSSI` added to end.
 ```
 encoding="utf-8"
 delimiter=';'

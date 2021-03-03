@@ -88,10 +88,10 @@
         circle = '<svg width="16" height="16"><circle cx="8" cy="8" r="7" stroke="black" stroke-width="1" fill="' + color + '" /></svg>'
         
         mark.innerHTML = circle
-        mark.title = "SSID: " + ap[SSID]  + "\n" +
-                     "MAC: " + ap[BSSID] + "\n" +
-                     "Date: " + ap[DATE] + "\n" +
-                     "Signal: " + ap[RSSI]
+        mark.title = `SSID: ${ap[SSID]}\n` +
+                     `MAC: ${ap[BSSID]}\n` +
+                     `Date: ${ap[DATE]}\n` +
+                     `Signal: ${ap[RSSI]} dBm`
         
         var popup = new ol.Overlay({
             element: mark,
